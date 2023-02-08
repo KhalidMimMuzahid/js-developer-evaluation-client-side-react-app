@@ -42,11 +42,14 @@ const EachStudent = ({
     // setIsUpdating(true);
     const studentInfo = { ...data };
     console.log("studentInfo: ", studentInfo);
-    fetch(`http://localhost:5000/update-student?_id=${_id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(studentInfo),
-    })
+    fetch(
+      `https://js-developer-evaluation.vercel.app/update-student?_id=${_id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(studentInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.modifiedCount) {

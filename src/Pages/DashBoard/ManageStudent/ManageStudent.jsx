@@ -21,7 +21,7 @@ const ManageStudent = () => {
     queryKey: [currentUser],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/all-students?postCreatorEmail=${currentUser?.email}`
+        `https://js-developer-evaluation.vercel.app/all-students?postCreatorEmail=${currentUser?.email}`
       );
       const data = await res.json();
       // console.log(data);
@@ -30,10 +30,13 @@ const ManageStudent = () => {
   });
   const handleDeleteStudent = (_id) => {
     console.log(_id);
-    fetch(`http://localhost:5000/delete-student?_id=${_id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    })
+    fetch(
+      `https://js-developer-evaluation.vercel.app/delete-student?_id=${_id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.deletedCount) {

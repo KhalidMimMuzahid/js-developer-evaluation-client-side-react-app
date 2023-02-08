@@ -25,7 +25,7 @@ const AddStudent = () => {
       date: moment().format(),
     };
     // studentInfo.postCreatorEmail = currentUser?.email;
-    fetch("http://localhost:5000/add-student", {
+    fetch("https://js-developer-evaluation.vercel.app/add-student", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(studentInfo),
